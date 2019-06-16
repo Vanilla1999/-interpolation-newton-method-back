@@ -4,8 +4,8 @@ import java.io.PrintWriter;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.util.Scanner;
-public class Nomer_4 {
-    public static final int K = 1001;
+public class Newton {
+    private static final int K = 1001;
     private static Scanner scn;
     private static void Tabl( int n, double[][] y, double[] x) {
         for (int i = 1; i < n; i++) {
@@ -28,11 +28,11 @@ public class Nomer_4 {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "\n" + "File not found");
         }
-        scn.skip("Кол-во узлов ");
+        scn.skip("Number of nodes ");
         int n = Integer.parseInt(scn.nextLine());
         double x[] = new double[n];
         double y[][] = new double[n ][n];
-        scn.skip("Значение узлов");
+        scn.skip("Node value");
         scn.nextLine();
         x[0] = Double.parseDouble(scn.next());
         for (int i = 1; i < n; i++) {
@@ -43,18 +43,18 @@ public class Nomer_4 {
         for (int i = 0; i < n; i++)
             y[i][0] = Double.parseDouble(scn.next());//read values Y
 
-        System.out.println("");
+
         Tabl( n, y, x);
 
         for (int i = 0; i < n; i++)
         {
-            for (int j = 0; j <= i; j++) {                                //Output rounded values
+            for (int j = 0; j <= i; j++) {                                //Output rounded values in table
                 DecimalFormat df = new DecimalFormat("#.####");
                 df.setRoundingMode(RoundingMode.HALF_UP);
                 String str1 = df.format(y[i][j]);
                 System.out.print(str1 + "\t ");
             }
-            System.out.println("");
+
         }
         try {
             File file;
